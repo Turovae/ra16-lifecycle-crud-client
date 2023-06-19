@@ -1,3 +1,7 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/5345at396o9c29hv?svg=true)](https://ci.appveyor.com/project/Turovae/ra16-lifecycle-crud-client)
+
+---
+
 CRUD
 ===
 
