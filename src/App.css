@@ -3,3 +3,34 @@
   width: fit-content;
   margin: 0 auto;
 }
+
+.btn {
+  /* padding: 5px; */
+  width: 30px;
+  height: 30px;
+  background-color: #fff;
+  border: 2px solid black;
+  border-radius: 50%;
+  /* text-align: center; */
+  /* vertical-align: middle; */
+  cursor: pointer;
+  background-position: center;
+  background-size: 80%;
+  background-repeat: no-repeat;
+}
+
+/* .btn-sign {
+  vertical-align: middle;
+} */
+
+.btn-update {
+  background-image: url(./assets/icons/sync_black_24dp.svg);
+}
+
+.btn-delete {
+  background-image: url(./assets/icons/clear_black_24dp.svg);
+}
+
+.btn-send {
+  background-image: url(./assets/icons/send_black_24dp.svg);
+}
