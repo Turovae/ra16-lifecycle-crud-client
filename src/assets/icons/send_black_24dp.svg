@@ -1,1 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M4.01 6.03l7.51 3.22-7.52-1 .01-2.22m7.5 8.72L4 17.97v-2.22l7.51-1M2.01 3L2 10l15 2-15 2 .01 7L23 12 2.01 3z"/></svg>
+<?xml version="1.0"?>
+<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+ <g class="layer">
+  <title>Layer 1</title>
+  <path d="m0.13,0.13l24,0l0,24l-24,0l0,-24z" fill="none" id="svg_1" transform="matrix(1 0 0 1 0 0)"/>
+  <path d="m1.56,2.94l7,8.94l-6.81,9.06l-0.05,0.13l20.99,-9l-21.13,-9.13z" id="svg_2"/>
+ </g>
+</svg>

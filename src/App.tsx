@@ -23,12 +23,12 @@ function App() {
             </div>
             <button type="button" className="btn btn-delete" />
           </div>
-          <form action="" className="add-note">
+        </div>
+        <form action="" className="add-note">
             <h3>New Note</h3>
-            <textarea name="" id="" cols={40} rows={10}></textarea>
+            <textarea className="add-note-textfield" name="" id="" cols={40} rows={10}></textarea>
             <button type="submit" className="btn btn-send" />
           </form>
-        </div>
       </div>
     </div>
   );
