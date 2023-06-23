@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import "./App.css";
 import Cards from "./components/Cards";
 import { v4 as uuid } from 'uuid';
@@ -27,21 +27,39 @@ function App() {
     }
   ]);
 
-  const addNote = (text: string): void => {
-    setCards([
-      ...cards,
-      {
-        noteID: uuid(),
-        body: text,
-      }
-    ]);
-  }
+  const addNote = useCallback((text: string): void => {
+    console.log(cards);
+    const newNote = {
+      noteID: uuid(),
+      body: text,
+    }
+    setCards((prevNotes) => [...prevNotes, newNote]);
+  }, [cards]);
 
-  const deleteNote = (id: string): void => {
+  const deleteNote = useCallback((id: string): void => {
+    console.log(id);
+    console.log(cards);
     setCards(
-      cards.filter((card) => card.noteID !== id)
+      // cards.filter((card) => card.noteID !== id)
+      (prevNotes) => prevNotes.filter((note) => note.noteID !== id)
     );
-  }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // const addNote = (text: string): void => {
+  //   notes = [
+  //     ...notes,
+  //     {
+  //       noteID: uuid(),
+  //       body: text,
+  //     }
+  //   ];
+  //   console.log(notes);
+  // }
+
+  // const deleteNote = (id: string): void => {
+  //   notes = notes.filter((note) => note.noteID !== id);
+  // }
 
   console.log(new Date());
   return (

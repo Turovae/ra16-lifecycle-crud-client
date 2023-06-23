@@ -21,7 +21,7 @@ const Card = memo(function Card({ id, text, onDelete }: {
   );
 })
 
-const Cards = memo(function Cards({ textCards = [], onDelete }: {
+function Cards({ textCards = [], onDelete }: {
   textCards: TextCard[] | [];
   onDelete: CallableFunction;
 }) {
@@ -30,6 +30,6 @@ const Cards = memo(function Cards({ textCards = [], onDelete }: {
       {textCards.map((card) => <Card key={card.noteID} id={card.noteID} text={card.body} onDelete={onDelete} />)}
     </div>
   )
-})
+}
 
 export default Cards;

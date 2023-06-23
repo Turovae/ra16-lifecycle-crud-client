@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import React, { memo, useState } from 'react'
 
-function AddNoteForm({ onAddNote }: {
+const AddNoteForm = memo(function AddNoteForm({ onAddNote }: {
   onAddNote: CallableFunction,
 }): JSX.Element {
   console.log('form')
@@ -38,6 +38,6 @@ function AddNoteForm({ onAddNote }: {
       <button type="submit" className="btn btn-send" />
     </form>
   )
-}
+})
 
 export default AddNoteForm;
