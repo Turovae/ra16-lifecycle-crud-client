@@ -1,5 +1,5 @@
 interface TextCard {
-  noteID: string;
+  id: string;
   body: string;
 }
 

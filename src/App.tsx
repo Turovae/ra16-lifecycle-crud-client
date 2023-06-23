@@ -1,44 +1,67 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import "./App.css";
-import { v4 as uuid } from "uuid";
 
 import Header from "./components/Header";
 import Cards from "./components/Cards";
 import AddNoteForm from "./components/AddNote";
 
+const URL = "http://localhost:7070/notes";
+
 function App() {
-  const [cards, setCards] = useState([
-    {
-      noteID: uuid(),
-      body: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis veritatis suscipit ab impedit magnam voluptates, eligendi aliquam dolores vitae! Distinctio architecto minima, voluptate doloribus eveniet dolores magni neque tenetur excepturi?",
-    },
-    {
-      noteID: uuid(),
-      body: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis veritatis suscipit ab impedit magnam voluptates, eligendi aliquam dolores vitae!",
-    },
-  ]);
+  const [cards, setCards] = useState([]);
+
+  const updateNotes = useCallback(() => {
+    const fetchNotes = async () => {
+      const response = await fetch(URL);
+      const data = await response.json();
+
+      setCards(data);
+    };
+
+    fetchNotes();
+  }, []);
 
   const addNote = useCallback((text: string): void => {
-    console.log(cards);
     const newNote = {
-      noteID: uuid(),
       body: text,
     };
-    setCards((prevNotes) => [...prevNotes, newNote]);
+    const fetchAddNote = async () => {
+      const response = await fetch(URL, {
+        method: "POST",
+        body: JSON.stringify(newNote),
+      });
+
+      if (response.ok) {
+        updateNotes();
+      }
+    };
+
+    fetchAddNote();
   }, []);
 
   const deleteNote = useCallback((id: string): void => {
-    console.log(id);
-    console.log(cards);
-    setCards((prevNotes) => prevNotes.filter((note) => note.noteID !== id));
+    const fetchDeleteNote = async () => {
+      const response = await fetch(`${URL}/${id}`, {
+        method: "DELETE",
+      });
+
+      if (response.ok) {
+        updateNotes();
+      }
+    };
+
+    fetchDeleteNote();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  console.log(new Date());
+  useEffect(() => {
+    updateNotes();
+  }, []);
+
   return (
     <div className="app">
       <div className="notes">
-        <Header />
+        <Header onUpdate={updateNotes} />
         <Cards textCards={cards} onDelete={deleteNote} />
         <AddNoteForm onAddNote={addNote} />
       </div>

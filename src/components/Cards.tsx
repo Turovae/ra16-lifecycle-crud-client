@@ -10,7 +10,6 @@ const Card = memo(function Card({
   text: string;
   onDelete: (id: string) => void;
 }) {
-  console.log(id);
   const handleDeleteCard = (): void => {
     onDelete(id);
   };
@@ -37,12 +36,7 @@ function Cards({
   return (
     <div className="cards">
       {textCards.map((card) => (
-        <Card
-          key={card.noteID}
-          id={card.noteID}
-          text={card.body}
-          onDelete={onDelete}
-        />
+        <Card key={card.id} id={card.id} text={card.body} onDelete={onDelete} />
       ))}
     </div>
   );

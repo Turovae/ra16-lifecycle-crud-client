@@ -5,7 +5,6 @@ const AddNoteForm = memo(function AddNoteForm({
 }: {
   onAddNote: CallableFunction;
 }): JSX.Element {
-  console.log("form");
   const [text, setText] = useState("");
 
   const handleSubmit = (evt: React.FormEvent<HTMLFormElement>) => {
