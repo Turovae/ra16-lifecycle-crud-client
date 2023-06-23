@@ -1,29 +1,28 @@
-import React, { memo, useState } from 'react'
+import React, { memo, useState } from "react";
 
-const AddNoteForm = memo(function AddNoteForm({ onAddNote }: {
-  onAddNote: CallableFunction,
+const AddNoteForm = memo(function AddNoteForm({
+  onAddNote,
+}: {
+  onAddNote: CallableFunction;
 }): JSX.Element {
-  console.log('form')
-  const [ text, setText ] = useState('');
+  console.log("form");
+  const [text, setText] = useState("");
 
   const handleSubmit = (evt: React.FormEvent<HTMLFormElement>) => {
     evt.preventDefault();
 
     if (text.length === 0) {
-      return
+      return;
     }
-    
+
     onAddNote(text);
-    setText('');
-  }
+    setText("");
+  };
 
   const handleChange = (evt: React.ChangeEvent<HTMLTextAreaElement>): void => {
-    evt.preventDefault();
-
     const { value } = evt.target;
-
     setText(value);
-  }
+  };
 
   return (
     <form action="" className="add-note" onSubmit={handleSubmit}>
@@ -34,10 +33,11 @@ const AddNoteForm = memo(function AddNoteForm({ onAddNote }: {
         cols={40}
         rows={10}
         value={text}
-        onChange={handleChange} />
+        onChange={handleChange}
+      />
       <button type="submit" className="btn btn-send" />
     </form>
-  )
-})
+  );
+});
 
 export default AddNoteForm;
