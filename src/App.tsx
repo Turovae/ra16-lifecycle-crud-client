@@ -37,6 +37,7 @@ function App() {
     };
 
     fetchAddNote();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const deleteNote = useCallback((id: string): void => {
@@ -56,6 +57,7 @@ function App() {
 
   useEffect(() => {
     updateNotes();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
