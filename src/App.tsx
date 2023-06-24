@@ -5,7 +5,7 @@ import Header from "./components/Header";
 import Cards from "./components/Cards";
 import AddNoteForm from "./components/AddNote";
 
-const URL = "http://localhost:7070/notes";
+const URL = "https://lifecycle-crud-server.onrender.com/notes";
 
 function App() {
   const [cards, setCards] = useState([]);
